@@ -11,8 +11,10 @@ function print(req, res) {
     };
     
     res.on("finish", () => {
+        console.log(`Request info: ${JSON.stringify(reqInfo)}`);
         console.log(`Response status: ${res.statusCode}`);
     }) 
+
     try {
         fs.appendFile(logFile, JSON.stringify(reqInfo) + "\r\n", () => {
             console.log(`Request saved to ${logFile}`);
