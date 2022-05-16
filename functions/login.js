@@ -1,6 +1,7 @@
 
 
 function login(body) {
+    console.log(body);
     console.log(body.username);
     console.log(body.email);
     console.log(body.password);
@@ -14,9 +15,17 @@ function login(body) {
         }
     } else {
         return {
-            "message": "login failed"
+            "error": "login failed",
+            "message": "please check credentials entered"
         }
     }
 }
 
+function logout() {
+    return {
+        "message": "successfully logged out"
+    }
+}
+
 exports.login = login;
+exports.logout = logout;

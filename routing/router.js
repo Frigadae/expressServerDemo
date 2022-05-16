@@ -3,6 +3,7 @@ const router = express.Router();
 const logger = require("../utils/logger.js");
 const login = require("../functions/login.js")
 const validate = login.login;
+const logout = login.logout;
 
 router.use("*", (req, res, next) => {
     logger.print(req, res);
@@ -24,8 +25,7 @@ router.get("/index", (req, res) => {
 })
 
 router.post("/login", (req, res) => {
-    let validate = signIn(req.body);
-    let message = {"message": "you are logging in with: "};
+    let message = validate(req.body);
     res.status(200)
     res.type("json");
     res.send(message);
