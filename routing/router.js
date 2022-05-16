@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const path = require("path");
 const logger = require("../utils/logger.js");
 const login = require("../functions/login.js")
 const validate = login.login;
@@ -13,8 +14,8 @@ router.use("*", (req, res, next) => {
 router.get("/", (req, res) => {
     let message = {"message": "welcome to the landing page"};
     res.status(200)
-    res.type("json");
-    res.send(message);
+    res.type("html");
+    res.sendFile(path.join(__dirname, "../public/index.html"));
 })
 
 router.get("/index", (req, res) => {
