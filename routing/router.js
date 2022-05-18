@@ -12,17 +12,15 @@ router.use("*", (req, res, next) => {
 });
 
 router.get("/", (req, res) => {
-    let message = {"message": "welcome to the landing page"};
     res.status(200)
     res.type("html");
     res.sendFile(path.join(__dirname, "../public/index.html"));
 })
 
 router.get("/index", (req, res) => {
-    let message = {"message": "welcome to the landing page"};
     res.status(200)
-    res.type("json");
-    res.send(message);
+    res.type("html");
+    res.sendFile(path.join(__dirname, "../public/index.html"));
 })
 
 router.post("/login", (req, res) => {

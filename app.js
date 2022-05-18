@@ -12,6 +12,7 @@ app.use(express.json());
 
 //serve favicon.ico found in the public folder
 app.use(favicon(__dirname + "/public/favicon.ico")); 
+app.use(express.static('public'));
 app.use("/", router.router);
 
 app.listen(port, () => {
