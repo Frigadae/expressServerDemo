@@ -18,30 +18,71 @@
                 <th>Route</th>
                 <th>Method</th>
                 <th>Description</th>
+                <th>Input</th>
+                <th>Output</th>
             </tr>
             <tr class="handlerRow">
                 <td>/</td>
                 <td>GET</td>
-                <td>Opens the index page</td>
+                <td>Sends a JSON object to the client</td>
+                <td>None</td>
+                <td>
+                    {
+                        message: string, 
+                        dateSent: date,
+                        info: string,
+                    }
+                </td>
             </tr>
             <tr class="handlerRow">
                 <td>/index</td>
                 <td>GET</td>
                 <td>Opens the index page</td>
+                <td>None</td>
+                <td>index.html</td>
             </tr>
             <tr class="handlerRow">
                 <td>/login</td>
                 <td>POST</td>
                 <td>
-                    Takes a JSON in request body
-                    <br>
-                    Example:
-                    <br>
+                    Takes a JSON object in the request body and sends a JSON object back                    
+                </td>
+                <td>
                     <code>
                         {
-                            username:username,
-                            email: email,
-                            password: password
+                            username: string,
+                            email: string,
+                            password: string
+                        }
+                    </code>
+                </td>
+                <td>
+                    On success:
+                    <code>
+                        {
+                            message: string,
+                            details: json
+                        }
+                    </code><br>
+                    On fail:
+                    <code>
+                        {
+                            error: string,
+                            message: string
+                        }
+                    </code>
+                </td>
+            </tr>
+            <tr class="handlerRow">
+                <td>/example</td>
+                <td>GET</td>
+                <td>Sends a JSON object to the client</td>
+                <td>None</td>
+                <td>
+                    <code>
+                        {
+                            message: string,
+                            dateSent: date
                         }
                     </code>
                 </td>
@@ -50,6 +91,14 @@
                 <td>*</td>
                 <td>All</td>
                 <td>Invalid path</td>
+                <td>None</td>
+                <td>
+                    <code>
+                        {
+                            message: string
+                        }
+                    </code>
+                </td>
             </tr>
         </table>
     </main>

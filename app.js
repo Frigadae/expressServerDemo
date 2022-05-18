@@ -14,7 +14,8 @@ app.use(express.json());
 app.use(favicon(__dirname + "/public/favicon.ico")); 
 
 //serve static files found in public folder when needed
-app.use(express.static('public'));
+//set index to false to stop index.html from being automatically served
+app.use(express.static('public'), {index: false});
 
 //use the express router
 app.use("/", router.router);
